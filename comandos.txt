@@ -1,0 +1,18 @@
+npm install
+
+npm audit fix --force
+
+------------------------------------------------------------
+create database arctic_games character set utf8 collate utf8_general_ci;
+
+CREATE USER 'tpilaravel' IDENTIFIED BY 'tpi';
+
+GRANT USAGE  ON *.* TO 'tpilaravel'@localhost IDENTIFIED BY 'tpi';
+
+GRANT ALL privileges ON `arctic_games`.* TO 'tpilaravel'@localhost;
+
+FLUSH PRIVILEGES;
+
+
+
+
