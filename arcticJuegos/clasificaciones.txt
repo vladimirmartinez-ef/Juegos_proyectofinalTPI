@@ -1,0 +1,37 @@
+lo sentimos vladi pensamos que teniamos que hacerlo en seeders XD aqui te dejo el codigo XD
+
+.....codigo.....
+
+<?php
+use Illuminate\Database\Seeder;
+use App\Clasificacion;
+use App\Clave;
+use App\Juegos;
+use App\JuegoClave;
+
+Class Juegoseeders extends Seeder
+{
+public function run ()
+    {
+        $clasificacion = new clasificacion();
+        $clasificacion->clasificacion="Accion";
+        $clasificacion->save();
+
+        $clasificacion = new clasificacion();
+        $clasificacion->clasificacion="RPG";
+        $clasificacion->save();
+
+        $clasificacion = new clasificacion();
+        $clasificacion->clasificacion="Carreras";
+        $clasificacion->save();
+
+        $clasificacion = new clasificacion();
+        $clasificacion->clasificacion="Estrategia";
+        $clasificacion->save();
+
+        $clasificacion = new clasificacion();
+        $clasificacion->clasificacion="Aventura";
+        $clasificacion->save();
+    }
+
+}
