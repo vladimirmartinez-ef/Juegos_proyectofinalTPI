@@ -15,6 +15,7 @@ class JuegoSeeders extends Seeder
      */
     public function run()
     {
+        // clasificaciones
         $clasificacion = new Clasificacion();
         $clasificacion->clasificacion = "accion";
         $clasificacion->save();
@@ -35,164 +36,165 @@ class JuegoSeeders extends Seeder
         $clasificacion->clasificacion = "aventura";
         $clasificacion->save();
 
+        // claves 40
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajv1s";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bssdydhjvkvascnsjhbasknvskbhajv2";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsvddgddyvwvbhajv3s";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "weffwfscvjhascnsjhbasknvskbhaj4dd";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "ttebjhascnsjhbasknvskbhajvs5sdvdv";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshj6nkscrgegvvvvejhbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjh7fdbascregernvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "egrgdscvjhascn8bfsjhbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscv9jaffrbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhasc10dbnsjhbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "b11shjnkscvjhascnsjhbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj12s";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj13";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj14hd";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs15dee";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj16tys";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj17pp";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj18fg";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajv19hs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhaj20ubhs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbasknvs21vdfvugcs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjhbas22knvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhas23cnsjhbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvjhascnsjh24hdusbhhvbhdbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bjhsvkssvk25vhsdbjsdvbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "ajaavjnvjn26aaacnsjhbasknvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "njfbdbdfoindblfdbdmbdfbombkbndnbod27";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "njfbdbdfoindblfdbdmbd28bjkmluvgb";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "njfbdbdfoindbl29tvbhnjklhjnk";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "fdbdmbdfbombkbndnbod30vghjkklghbjn";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "fvghjkascnsj31hbasknvskbhajvsghhjb";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "nsjhbasknvskbhajv32yuybhjhhhbhs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "njfbdbdfoindbfghjmk33gbhjkhjnkidd";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "njfbdbdfcvjhascnsjhbas34knvskbhajvs";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "njfbdbdfoind35cvujknjvubyehv";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "lfdbdmbdfbombkbndnbod36cvubkubjh";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "bshjnkscvj37hascnsjhbasknkjnkvbh";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "dfbombkbndnbod38yvbnjknkinjkfss";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "nkscvjhascnsjhbaskn39vbhjknkbbvh";
         $claves->save();
 
         $claves = new Clave();
-        $claves->clave = "bshjnkscvjhascnsjhbasknvskbhajvs";
+        $claves->clave = "frbjbrhdvhjbvjvjsvkn40vghsbvhjj";
         $claves->save();
 
         //JUEGOS DE AVENTURA
@@ -249,20 +251,20 @@ class JuegoSeeders extends Seeder
         $juegos->nombrejuego = "DIRT 5";
         $juegos->descripcion ="Es una nueva entrega de la famosa saga de conducción y rallies a cargo de Codemasters para PC, PlayStation 4, Xbox One, PlayStation 5, Xbox Series X y Stadia. La experiencia todoterreno más audaz de todos los tiempos, con un modo Carrera plagado de estrellas, pantalla dividida para cuatro jugadores, innovadores modos en línea, editor de diseños distintivos y mucho más. Abre camino en circuitos mundiales de grava, hielo, nieve y arena, con vehículos que abarcan desde los emblemáticos coches de rallies hasta camionetas e iconos de GT.";
         $juegos->requerimientos = "Sistema Operativo: Windows 10 (64-Bit),Procesador: AMD FX 4300 / Intel Core i3 2130, Memoria: 8 GB de RAM, Gráficos: AMD RX 480 (DirectX12 Graphics Card) / NVIDIA GTX 970, DirectX: Versión 12, Red:Conexión de banda ancha a Internet, Almacenamiento: 60 GB de espacio disponible, Tarjeta de sonido: DirectX Compatible.";
-        $juegos->sistema = "PC, PlayStation 4, Xbox One, PlayStation 5, Xbox Series X y Stadia.";
-        $juegos->idclasificacion = carreras;
+        $juegos->sistema = "windows";
+        $juegos->idclasificacion = 3;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Codemasters";
         $juegos->precio = 84.00;
         $juegos->image = "https://cdn-products.eneba.com/resized-products/ABl-o90RlpFaUBdw0Mu2IGA6RJj0b3N9DvoNn0lv7Aw_350x200_1x-0.jpeg";
-        $juegos->save()
+        $juegos->save();
 
         $juegos = new Juego();
         $juegos->nombrejuego = "Monster Truck Championship";
         $juegos->descripcion ="Monster Truck Championship es un videojuego de conducción a cargo de Teyon y Nacon para PC, PlayStation 4, Xbox One y Switch. Una experiencia de carreras de motor única y exigente donde la victoria en modo local u online depende exclusivamente de tu destreza al volante. ¡16 camiones personalizables, 25 arenas y 3 ligas que ganar para ser el campeón!";
         $juegos->requerimientos = "Requiere un procesador y un sistema operativo de 64 bits, SO: Windows 7/8/10 64-bit, Procesador: Intel Core i3 4160 @ 3.6GHz/AMD FX 8350 @ 4.0GHz o mejor, Memoria: 6 GB de RAM, Gráficos: Nvidia GTX 660 / AMD RX 560 or better, Almacenamiento: 26 GB de espacio disponible.";
-        $juegos->sistema = "PC, PlayStation 4, Xbox One y Switch.";
-        $juegos->idclasificacion = carreras;
+        $juegos->sistema = "windows";
+        $juegos->idclasificacion = 3;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Teyon";
         $juegos->precio = 25;
@@ -273,8 +275,8 @@ class JuegoSeeders extends Seeder
         $juegos->nombrejuego = "MXGP 2020";
         $juegos->descripcion ="MXGP 2020 es una nueva entrega de la saga de conducción y motocross MXGP de la temporada 2020 del Campeonato Mundial a cargo de Milestone para PC, PlayStation 4, Xbox One y PlayStation 5. Súbete a tu moto y siente la adrenalina correr con esta nueva experiencia de juego. Toma el control y descubre las novedades de la serie oficial. Desafía a todos los pilotos y equipos de las categorías MXGP y MX2 de 2020. Saca al piloto que llevas dentro y conviértete en el campeón que siempre has soñado.";
         $juegos->requerimientos = "Sistema operativo: Windows 8.1 (64-bit), Procesador: Intel Core i5-2500K / AMD FX-6350, Memoria: 8 GB de RAM, Gráficos: GeForce GTX 960 / GeForce GTX 1050, DirectX: Versión 11, Tarjeta de sonido: DirectX compatible";
-        $juegos->sistema = "PC, PlayStation 4, Xbox One y PlayStation 5.";
-        $juegos->idclasificacion = carreras;
+        $juegos->sistema = "windows";
+        $juegos->idclasificacion = 3;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Milestone";
         $juegos->precio = 72.00;
@@ -285,8 +287,8 @@ class JuegoSeeders extends Seeder
         $juegos->nombrejuego = "MotoGP 21";
         $juegos->descripcion ="MotoGP 21 es una nueva entrega de la saga de conducción y motociclismo a cargo de Milestone para PC, PlayStation 4, Xbox One, PlayStation 5, Xbox Series y Switch. Vive la temporada 2021 al máximo con las clases MotoGP, Moto2 y Moto3. Vive la experiencia de carreras en 2 ruedas más auténtica con más de 120 pilotos oficiales, más de 20 pistas y nuevas características mejoradas para un nivel de realismo único.";
         $juegos->requerimientos = "Sistema operativo: Windows 8.1 o posterior (64-bit), Procesador: Intel Core i5-3470, AMD FX-6350 o equivalente, Memoria: 8 GB de RAM, Gráficos: NVIDIA GeForce GTX 1050 con 2 GB VRAM o más, AMD Radeon HD 7950 con 2 GB VRAM o más, DirectX: Versión 11, Almacenamiento: 22 GB de espacio disponible.";
-        $juegos->sistema = "PC, PlayStation 4, Xbox One, PlayStation 5, Xbox Series y Switch.";
-        $juegos->idclasificacion = carreras;
+        $juegos->sistema = "windows";
+        $juegos->idclasificacion = 3;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Milestone";
         $juegos->precio = 27.84;
@@ -304,7 +306,7 @@ class JuegoSeeders extends Seeder
         Gráficos:DirectX 9.0c-compatible graphic card
         Almacenamiento:3 GB HD ";
         $juegos->sistema = "Windows XP/Vista/7 (32/64bits)";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 2;
         $juegos->estado = "disponible";
         $juegos->proveedor = "SQUARE ENIX";
         $juegos->precio = 11.99;
@@ -321,7 +323,7 @@ class JuegoSeeders extends Seeder
         Red: Conexión de banda ancha a Internet
         Almacenamiento: 50 GB de espacio disponible";
         $juegos->sistema = "Windows 7 /8.1 /10 64bit";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 2;
         $juegos->estado = "disponible";
         $juegos->proveedor = "PlatinumGames";
         $juegos->precio = 59.99;
@@ -336,7 +338,7 @@ class JuegoSeeders extends Seeder
         Gráficos: 512MB
         Almacenamiento: 200 MB de espacio disponible";
         $juegos->sistema = "Windows XP/Vista/7/10 (32/64bits)";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 2;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Toby Fox";
         $juegos->precio = 9.99;
@@ -351,14 +353,14 @@ class JuegoSeeders extends Seeder
         Gráficos: NVIDIA® GeForce® GTX 760 o AMD Radeon™ R7 260x (VRAM 2GB)
         DirectX: Versión 11";
         $juegos->sistema = "WINDOWS® 7, 8, 8.1, 10 (requiere 64 bits)";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 2;
         $juegos->estado = "disponible";
         $juegos->proveedor = "CAPCOM";
         $juegos->precio = 39.99;
         $juegos->image = "https://generacionxbox.com/wp-content/uploads/2018/01/monster-hunter-world-wallpaper-generacion-xbox.jpg";
         $juegos->save();
-        
-        //JUEGOS DE ACCION 
+
+        //JUEGOS DE ACCION
         $juegos = new Juego();
         $juegos->nombrejuego = "Destiny";
         $juegos->descripcion ="Juego de acción y aventura en el que el jugador crea su propio avatar y en el  transcurso evoluciona con el propósito de salvar el universo distópico mostrado";
@@ -392,7 +394,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Activision";
         $juegos->precio = 236.34;
-        $juegos->image = “https://images.app.goo.gl/dXwHyoS3FUvP65op8";
+        $juegos->image = "https://images.app.goo.gl/dXwHyoS3FUvP65op8";
         $juegos->save();
 
         $juegos = new Juego();
@@ -408,7 +410,55 @@ class JuegoSeeders extends Seeder
         $juegos->save();
 
         //JUEGOS DE ESTRATEGIA
-        //CLAVE JUEGOS 
+        $juegos = new Juego();
+        $juegos->nombrejuego = "Crying Suns";
+        $juegos->descripcion ="Crying Suns es un roguelite de exploración táctica en el que encarnas a un gran almirante que explora su imperio caído. Descubre la verdad sobre el Imperio y sobre ti mismo en una profunda historia narrativa.";
+        $juegos->requerimientos = "Windows Vista, 7, 10 (64 bits), Procesador: Dual-core 2.5 GHz o equivalente /Core i3 2,5 GHz o equivalente, Memoria RAM: 4 GB, Tarjeta de vídeo: GPU dedicada, 1 GB de VRAM/AMD HD5750 o equivalente/GPU dedicada, 2 GB de VRAM/GTX 750ti o equivalente, Espacio en disco: 2 GB,";
+        $juegos->sistema = "Windows";
+        $juegos->idclasificacion = 1;
+        $juegos->estado = "disponible";
+        $juegos->proveedor = "Humble Games";
+        $juegos->precio = 24.99;
+        $juegos->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/221380/header.jpg?t=1620144521";
+        $juegos->save();
+
+        $juegos = new Juego();
+        $juegos->nombrejuego = "Crying Suns";
+        $juegos->descripcion ="Explora todas las campañas originales para un jugador de la expansión Age of Kings y The Conquerors, elige entre 18 civilizaciones que abarcan más de mil años de historia y dirígete a Internet para desafiar a otros jugadores en tu búsqueda por la dominación mundial a lo largo de los siglos..";
+        $juegos->requerimientos = "Windows Vista, 7, 8 Pro+, Procesador: 1.2GHZ CPU, Memoria RAM: 1 GB, Tarjeta de vídeo: Direct X 9.0c Capable GPU, Espacio en disco: 2 GB,";
+        $juegos->sistema = "Windows";
+        $juegos->idclasificacion = 1;
+        $juegos->estado = "disponible";
+        $juegos->proveedor = "Xbox Game Studios";
+        $juegos->precio = 19.99;
+        $juegos->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/873940/header.jpg?t=1612466716";
+        $juegos->save();
+
+        $juegos = new Juego();
+        $juegos->nombrejuego = "Death Coming";
+        $juegos->descripcion ="Death Coming es un juego de lógica no lineal en el que deberás cosechar almas humanas al estilo de la franquicia 'Destino final'. Sin embargo, los molestos mortales no son tu único problema, ya que los agentes de la luz harán todo lo posible para detenerte.";
+        $juegos->requerimientos = "Windows Vista, 7 / 8 /10, Procesador: Intel i3, Memoria RAM: 4 GB, Espacio en disco: 500 MB,";
+        $juegos->sistema = "Windows";
+        $juegos->idclasificacion = 1;
+        $juegos->estado = "disponible";
+        $juegos->proveedor = "NExT Studios";
+        $juegos->precio = 6.99;
+        $juegos->image = "https://www.chollosocial.com/media/data/2020/05/1588868830-225x300.jpg";
+        $juegos->save();
+
+        $juegos = new Juego();
+        $juegos->nombrejuego = "Crying Suns";
+        $juegos->descripcion ="Construye un hogar nuevo para tu equipo de robots, mientras inician una vida nueva en un planeta lejano, en donde podrán hacer realidad su sueño más anhelado: ser humanos.";
+        $juegos->requerimientos = "Windows de 64 bits, Procesador: Multicore compatible con conjunto de instrucciones SSE, Memoria RAM: 4 GB, Tarjeta de vídeo: DX9 de 1 GB (Shader Model 3.0), Espacio en disco: 1 GB,";
+        $juegos->sistema = "Windows";
+        $juegos->idclasificacion = 1;
+        $juegos->estado = "disponible";
+        $juegos->proveedor = "Mode 7";
+        $juegos->precio = 24.99;
+        $juegos->image = "https://cdn-products.eneba.com/resized-products/Myw8czZYGs00EaymjXSzHddp-Cas4k5k5K1dxG7J99s_350x200_1x-0.jpeg";
+        $juegos->save();
+
+        //CLAVE JUEGOS
 
         $juegosclave= new JuegoClave();
         $juegosclave->idjuegos = 1;
@@ -531,7 +581,7 @@ class JuegoSeeders extends Seeder
         $juegosclave->estadoclave = true;
         $juegosclave->save();
 
-        ---
+
         $juegosclave= new JuegoClave();
         $juegosclave->idjuegos = 11;
         $juegosclave->idclaves = 21;
@@ -652,6 +702,6 @@ class JuegoSeeders extends Seeder
         $juegosclave->idclaves = 40;
         $juegosclave->estadoclave = true;
         $juegosclave->save();
-        
+
     }
 }

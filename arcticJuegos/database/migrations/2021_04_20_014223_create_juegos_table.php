@@ -16,8 +16,8 @@ class CreateJuegosTable extends Migration
         Schema::create('juegos', function (Blueprint $table) {
             $table->bigIncrements('idjuegos');
             $table->string('nombrejuego', 100);
-            $table->string('descripcion', 600);
-            $table->string('requerimientos', 200);
+            $table->string('descripcion', 800);
+            $table->string('requerimientos', 600);
             $table->string('sistema', 100);
             $table->bigInteger('idclasificacion')->unsigned();
             $table->string('estado', 100);
