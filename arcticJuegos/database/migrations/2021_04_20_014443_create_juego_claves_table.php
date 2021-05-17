@@ -14,6 +14,7 @@ class CreateJuegoClavesTable extends Migration
     public function up()
     {
         Schema::create('juego_claves', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('idjuegos')->unsigned();
             $table->bigInteger('idclaves')->unsigned();
             $table->boolean('estadoclave')->default(true);
