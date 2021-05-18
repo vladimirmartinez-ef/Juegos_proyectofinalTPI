@@ -415,7 +415,7 @@ class JuegoSeeders extends Seeder
         $juegos->descripcion ="Crying Suns es un roguelite de exploración táctica en el que encarnas a un gran almirante que explora su imperio caído. Descubre la verdad sobre el Imperio y sobre ti mismo en una profunda historia narrativa.";
         $juegos->requerimientos = "Windows Vista, 7, 10 (64 bits), Procesador: Dual-core 2.5 GHz o equivalente /Core i3 2,5 GHz o equivalente, Memoria RAM: 4 GB, Tarjeta de vídeo: GPU dedicada, 1 GB de VRAM/AMD HD5750 o equivalente/GPU dedicada, 2 GB de VRAM/GTX 750ti o equivalente, Espacio en disco: 2 GB,";
         $juegos->sistema = "Windows";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 4;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Humble Games";
         $juegos->precio = 24.99;
@@ -427,7 +427,7 @@ class JuegoSeeders extends Seeder
         $juegos->descripcion ="Explora todas las campañas originales para un jugador de la expansión Age of Kings y The Conquerors, elige entre 18 civilizaciones que abarcan más de mil años de historia y dirígete a Internet para desafiar a otros jugadores en tu búsqueda por la dominación mundial a lo largo de los siglos..";
         $juegos->requerimientos = "Windows Vista, 7, 8 Pro+, Procesador: 1.2GHZ CPU, Memoria RAM: 1 GB, Tarjeta de vídeo: Direct X 9.0c Capable GPU, Espacio en disco: 2 GB,";
         $juegos->sistema = "Windows";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 4;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Xbox Game Studios";
         $juegos->precio = 19.99;
@@ -439,7 +439,7 @@ class JuegoSeeders extends Seeder
         $juegos->descripcion ="Death Coming es un juego de lógica no lineal en el que deberás cosechar almas humanas al estilo de la franquicia 'Destino final'. Sin embargo, los molestos mortales no son tu único problema, ya que los agentes de la luz harán todo lo posible para detenerte.";
         $juegos->requerimientos = "Windows Vista, 7 / 8 /10, Procesador: Intel i3, Memoria RAM: 4 GB, Espacio en disco: 500 MB,";
         $juegos->sistema = "Windows";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 4;
         $juegos->estado = "disponible";
         $juegos->proveedor = "NExT Studios";
         $juegos->precio = 6.99;
@@ -451,7 +451,7 @@ class JuegoSeeders extends Seeder
         $juegos->descripcion ="Construye un hogar nuevo para tu equipo de robots, mientras inician una vida nueva en un planeta lejano, en donde podrán hacer realidad su sueño más anhelado: ser humanos.";
         $juegos->requerimientos = "Windows de 64 bits, Procesador: Multicore compatible con conjunto de instrucciones SSE, Memoria RAM: 4 GB, Tarjeta de vídeo: DX9 de 1 GB (Shader Model 3.0), Espacio en disco: 1 GB,";
         $juegos->sistema = "Windows";
-        $juegos->idclasificacion = 1;
+        $juegos->idclasificacion = 4;
         $juegos->estado = "disponible";
         $juegos->proveedor = "Mode 7";
         $juegos->precio = 24.99;

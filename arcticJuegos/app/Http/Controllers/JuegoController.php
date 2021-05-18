@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Juego;
 
 class JuegoController extends Controller
 {
@@ -11,15 +12,15 @@ class JuegoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
-    if($request->ajax()){
-       //return Juego::where('estado', 'disponible')->get();
-    return Juego::join("clasificacions","juegos.idclasificacion","=","clasificacions.idclasificacion")->where('estado','disponible')->get();
 
-       // return Juego::join("clasificacions","juegos.idclasificacion","=","clasificacions.idclasificacion")->where('estado','disponible')->where('clasificacions.clasificacion', 'combate')->get();
-    }
+        if ($request->ajax()) {
+            //return Juego::where('estado', 'disponible')->get();
+            return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->get();
+
+            // return Juego::join("clasificacions","juegos.idclasificacion","=","clasificacions.idclasificacion")->where('estado','disponible')->where('clasificacions.clasificacion', 'combate')->get();
+        }
 
     }
 

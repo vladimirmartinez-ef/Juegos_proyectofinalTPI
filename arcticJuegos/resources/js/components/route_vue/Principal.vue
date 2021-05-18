@@ -94,7 +94,7 @@
                 <div class="card-header green darken-1">{{item.nombrejuego}}</div>
               <div class="row no-gutters">
                 <div class="col-md-5">
-                  <img :src="item.image" class="img-fluid"/>
+                  <img :src="item.image" class="img-fluid" style="height: 250px; width: 420px"/>
                 </div>
                 <div class="col-md-7">
                   <div class="card-body">

@@ -1902,7 +1902,223 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      items: [],
+      show: false,
+      itemsPerPageArray: [5, 8, 10, 25],
+      search: "",
+      filter: {},
+      sortDesc: false,
+      page: 1,
+      itemsPerPage: 5,
+      sortBy: "nombrejuego",
+      keys: ["Precio", "Sistema"],
+      sheet: false,
+      clasi: [],
+      hola: false,
+      nombreclasi: ""
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/juego").then(function (res) {
+      _this.items = res.data;
+    });
+  },
+  computed: {
+    numberOfPages: function numberOfPages() {
+      return Math.ceil(this.items.length / this.itemsPerPage);
+    },
+    filteredKeys: function filteredKeys() {
+      return this.keys.filter(function (key) {
+        return key !== "Precio";
+      });
+    }
+  },
+  methods: {
+    nextPage: function nextPage() {
+      if (this.page + 1 <= this.numberOfPages) this.page += 1;
+    },
+    formerPage: function formerPage() {
+      if (this.page - 1 >= 1) this.page -= 1;
+    },
+    updateItemsPerPage: function updateItemsPerPage(number) {
+      this.itemsPerPage = number;
+    }
+  }
+});
 
 /***/ }),
 
@@ -37721,16 +37937,337 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("Juegos")]),
+      _vm._v(" "),
+      _c("v-data-iterator", {
+        staticClass: "mx-3",
+        attrs: {
+          items: _vm.items,
+          "items-per-page": _vm.itemsPerPage,
+          page: _vm.page,
+          search: _vm.search,
+          "sort-by": _vm.sortBy.toLowerCase(),
+          "sort-desc": _vm.sortDesc,
+          "hide-default-footer": ""
+        },
+        on: {
+          "update:itemsPerPage": function($event) {
+            _vm.itemsPerPage = $event
+          },
+          "update:items-per-page": function($event) {
+            _vm.itemsPerPage = $event
+          }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "header",
+            fn: function() {
+              return [
+                _c(
+                  "v-toolbar",
+                  {
+                    staticClass: "mb-1",
+                    attrs: { dark: "", color: "indigo darken-3" }
+                  },
+                  [
+                    _c("v-text-field", {
+                      attrs: {
+                        clearable: "",
+                        flat: "",
+                        "solo-inverted": "",
+                        "hide-details": "",
+                        "prepend-inner-icon": "mdi-magnify",
+                        label: "Search"
+                      },
+                      model: {
+                        value: _vm.search,
+                        callback: function($$v) {
+                          _vm.search = $$v
+                        },
+                        expression: "search"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.$vuetify.breakpoint.mdAndUp
+                      ? [
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c("v-select", {
+                            attrs: {
+                              flat: "",
+                              "solo-inverted": "",
+                              "hide-details": "",
+                              items: _vm.keys,
+                              "prepend-inner-icon": "mdi-magnify",
+                              label: "Sort by"
+                            },
+                            model: {
+                              value: _vm.sortBy,
+                              callback: function($$v) {
+                                _vm.sortBy = $$v
+                              },
+                              expression: "sortBy"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-spacer"),
+                          _vm._v(" "),
+                          _c(
+                            "v-btn-toggle",
+                            {
+                              attrs: { mandatory: "" },
+                              model: {
+                                value: _vm.sortDesc,
+                                callback: function($$v) {
+                                  _vm.sortDesc = $$v
+                                },
+                                expression: "sortDesc"
+                              }
+                            },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    large: "",
+                                    depressed: "",
+                                    color: "indigo darken-1",
+                                    value: false
+                                  }
+                                },
+                                [_c("v-icon", [_vm._v("mdi-arrow-up")])],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    large: "",
+                                    depressed: "",
+                                    color: "indigo darken-1",
+                                    value: true
+                                  }
+                                },
+                                [_c("v-icon", [_vm._v("mdi-arrow-down")])],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "default",
+            fn: function(props) {
+              return [
+                _c(
+                  "v-row",
+                  _vm._l(props.items, function(item, index) {
+                    return _c("v-col", { key: index, attrs: { cols: "12" } }, [
+                      _c("div", { staticClass: "card mb-2 blue" }, [
+                        _c(
+                          "div",
+                          { staticClass: "card-header green darken-1" },
+                          [_vm._v(_vm._s(item.nombrejuego))]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row no-gutters" }, [
+                          _c("div", { staticClass: "col-md-5" }, [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              staticStyle: { height: "250px", width: "420px" },
+                              attrs: { src: item.image }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-7" }, [
+                            _c(
+                              "div",
+                              { staticClass: "card-body" },
+                              [
+                                _c("h5", { staticClass: "card-title" }, [
+                                  _vm._v(_vm._s(item.precio) + " ")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "card-text" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(item.descripcion) +
+                                      "\n                  "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "card-text" }, [
+                                  _c("small", { staticClass: "text-bold" }, [
+                                    _vm._v(_vm._s(item.clasificacion))
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("detalles", {
+                                  attrs: { gameUniverse: item }
+                                })
+                              ],
+                              1
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  }),
+                  1
+                )
+              ]
+            }
+          },
+          {
+            key: "footer",
+            fn: function() {
+              return [
+                _c(
+                  "v-row",
+                  {
+                    staticClass: "mt-2",
+                    attrs: { align: "center", justify: "center" }
+                  },
+                  [
+                    _c("span", { staticClass: "white--text" }, [
+                      _vm._v("Items per page")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "v-menu",
+                      {
+                        attrs: { "offset-y": "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "ml-2",
+                                        attrs: {
+                                          dark: "",
+                                          text: "",
+                                          color: "indigo darken-3"
+                                        }
+                                      },
+                                      "v-btn",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n              " +
+                                        _vm._s(_vm.itemsPerPage) +
+                                        "\n              "
+                                    ),
+                                    _c("v-icon", [_vm._v("mdi-chevron-down")])
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [
+                        _vm._v(" "),
+                        _c(
+                          "v-list",
+                          _vm._l(_vm.itemsPerPageArray, function(
+                            number,
+                            index
+                          ) {
+                            return _c(
+                              "v-list-item",
+                              {
+                                key: index,
+                                on: {
+                                  click: function($event) {
+                                    return _vm.updateItemsPerPage(number)
+                                  }
+                                }
+                              },
+                              [
+                                _c("v-list-item-title", [
+                                  _vm._v(_vm._s(number))
+                                ])
+                              ],
+                              1
+                            )
+                          }),
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "mr-4 white--text" }, [
+                      _vm._v(
+                        "\n          Page " +
+                          _vm._s(_vm.page) +
+                          " of " +
+                          _vm._s(_vm.numberOfPages) +
+                          "\n        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mr-1",
+                        attrs: { fab: "", dark: "", color: "indigo darken-3" },
+                        on: { click: _vm.formerPage }
+                      },
+                      [_c("v-icon", [_vm._v("mdi-chevron-left")])],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "ml-1",
+                        attrs: { fab: "", dark: "", color: "indigo darken-3" },
+                        on: { click: _vm.nextPage }
+                      },
+                      [_c("v-icon", [_vm._v("mdi-chevron-right")])],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Hola mundo")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
