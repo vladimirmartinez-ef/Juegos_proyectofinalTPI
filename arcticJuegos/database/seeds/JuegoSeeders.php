@@ -246,7 +246,7 @@ class JuegoSeeders extends Seeder
         $juegos->image="https://as01.epimg.net/meristation/imagenes/2018/07/02/game_cover/1530502655_502655_019919_gameplatform.jpg";
         $juegos->save();
 
-        //JUEGOS DE CARERA
+        //JUEGOS DE CARRERA
         $juegos = new Juego();
         $juegos->nombrejuego = "DIRT 5";
         $juegos->descripcion ="Es una nueva entrega de la famosa saga de conducción y rallies a cargo de Codemasters para PC, PlayStation 4, Xbox One, PlayStation 5, Xbox Series X y Stadia. La experiencia todoterreno más audaz de todos los tiempos, con un modo Carrera plagado de estrellas, pantalla dividida para cuatro jugadores, innovadores modos en línea, editor de diseños distintivos y mucho más. Abre camino en circuitos mundiales de grava, hielo, nieve y arena, con vehículos que abarcan desde los emblemáticos coches de rallies hasta camionetas e iconos de GT.";

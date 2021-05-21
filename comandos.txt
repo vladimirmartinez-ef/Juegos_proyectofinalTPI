@@ -2,6 +2,17 @@ npm install
 
 npm audit fix --force
 
+php artisan db:seed
+udo chown -R $USER /usr/local/lib/node_modules
+
+ 
+php -V
+sudo apt-get install php7.3-mysql
+sudo mysql -u root 
+systemctl restart apache2
+
+php artisan key:generate
+php artisan config:cache    
 ------------------------------------------------------------
 create database arctic_games character set utf8 collate utf8_general_ci;
 

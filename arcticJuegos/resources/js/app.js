@@ -13,7 +13,10 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 
+import Carrera from './components/route_vue/Carreras.vue'
 import Principal from './components/route_vue/Principal.vue'
+
+
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -21,6 +24,11 @@ const router = new VueRouter({
             path: '/',
             name: 'dashboard',
             component: Principal
+        },
+        {
+            path: '/juegocarrera',
+            name: 'carreras',
+            component: Carrera
         },
     ],
 });

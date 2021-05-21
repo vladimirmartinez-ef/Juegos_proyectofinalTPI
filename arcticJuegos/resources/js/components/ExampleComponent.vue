@@ -10,6 +10,14 @@
                         <v-list-item-title>TODO</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
+                <v-list-item link to="/juegocarrera">
+                    <v-list-item-action>
+                        <v-icon>mdi-car</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>CARRERAS</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
             </v-list>
         </v-navigation-drawer>
         <v-app-bar app clipped-left>

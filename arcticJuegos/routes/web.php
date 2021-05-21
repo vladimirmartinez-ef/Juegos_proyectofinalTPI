@@ -21,4 +21,10 @@ Auth::routes();
 
 Route::resource('/juego', 'JuegoController');
 
+Route::get('/carreras', 'JuegoController@carrera');
+
+Route::get('/juegocarrera', function() {
+    return view('carreras');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');

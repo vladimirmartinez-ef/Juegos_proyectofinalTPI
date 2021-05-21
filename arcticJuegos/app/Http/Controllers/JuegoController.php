@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Juego;
+use App\Clasificacion;
 
 class JuegoController extends Controller
 {
@@ -89,4 +90,12 @@ class JuegoController extends Controller
     {
         //
     }
+    public function carrera(Request $request)
+    {
+        if($request->ajax()) {
+            return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'carreras')->get();
+            
+        }
+    }
+       
 }
