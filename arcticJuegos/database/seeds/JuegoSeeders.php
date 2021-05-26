@@ -419,11 +419,12 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Humble Games";
         $juegos->precio = 24.99;
-        $juegos->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/221380/header.jpg?t=1620144521";
+        $juegos->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/873940/header.jpg?t=1612466716";
         $juegos->save();
-
+        //https://cdn2.unrealengine.com/egs-cryingsunsisatacticalroguelite-altshift-ic1-400x225-528455333.png?h=270&resize=1&w=480
+        
         $juegos = new Juego();
-        $juegos->nombrejuego = "Crying Suns";
+        $juegos->nombrejuego = "Age of Empires II";
         $juegos->descripcion ="Explora todas las campañas originales para un jugador de la expansión Age of Kings y The Conquerors, elige entre 18 civilizaciones que abarcan más de mil años de historia y dirígete a Internet para desafiar a otros jugadores en tu búsqueda por la dominación mundial a lo largo de los siglos..";
         $juegos->requerimientos = "Windows Vista, 7, 8 Pro+, Procesador: 1.2GHZ CPU, Memoria RAM: 1 GB, Tarjeta de vídeo: Direct X 9.0c Capable GPU, Espacio en disco: 2 GB,";
         $juegos->sistema = "Windows";
@@ -431,7 +432,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Xbox Game Studios";
         $juegos->precio = 19.99;
-        $juegos->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/873940/header.jpg?t=1612466716";
+        $juegos->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/221380/header.jpg?t=1620144521";
         $juegos->save();
 
         $juegos = new Juego();
@@ -443,11 +444,11 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "NExT Studios";
         $juegos->precio = 6.99;
-        $juegos->image = "https://www.chollosocial.com/media/data/2020/05/1588868830-225x300.jpg";
+        $juegos->image = "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fdeath-coming%2Fhome%2FEGS_DeathComing_NExTStudios_G2_00-1920x1080-3b64e307a2d9b178a0f54127466dad4c530bf83e.jpg";
         $juegos->save();
 
         $juegos = new Juego();
-        $juegos->nombrejuego = "Crying Suns";
+        $juegos->nombrejuego = "The Colonists";
         $juegos->descripcion ="Construye un hogar nuevo para tu equipo de robots, mientras inician una vida nueva en un planeta lejano, en donde podrán hacer realidad su sueño más anhelado: ser humanos.";
         $juegos->requerimientos = "Windows de 64 bits, Procesador: Multicore compatible con conjunto de instrucciones SSE, Memoria RAM: 4 GB, Tarjeta de vídeo: DX9 de 1 GB (Shader Model 3.0), Espacio en disco: 1 GB,";
         $juegos->sistema = "Windows";
@@ -455,7 +456,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Mode 7";
         $juegos->precio = 24.99;
-        $juegos->image = "https://cdn-products.eneba.com/resized-products/Myw8czZYGs00EaymjXSzHddp-Cas4k5k5K1dxG7J99s_350x200_1x-0.jpeg";
+        $juegos->image = "https://cdn.akamai.steamstatic.com/steam/apps/677340/header.jpg?t=1606393452";
         $juegos->save();
 
         //CLAVE JUEGOS

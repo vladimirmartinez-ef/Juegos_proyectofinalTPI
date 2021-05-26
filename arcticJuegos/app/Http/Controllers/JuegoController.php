@@ -97,5 +97,13 @@ class JuegoController extends Controller
             
         }
     }
+
+    public function estrategia(Request $request)
+    {
+        if($request->ajax()) {
+            return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'estrategia')->get();
+            
+        }
+    }
        
 }

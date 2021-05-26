@@ -13,6 +13,7 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 
+import Estrategia from './components/route_vue/Estrategia.vue'
 import Carrera from './components/route_vue/Carreras.vue'
 import Principal from './components/route_vue/Principal.vue'
 
@@ -29,6 +30,11 @@ const router = new VueRouter({
             path: '/juegocarrera',
             name: 'carreras',
             component: Carrera
+        },
+        {
+            path: '/juegoestrategia',
+            name: 'estrategia',
+            component: Estrategia
         },
     ],
 });
