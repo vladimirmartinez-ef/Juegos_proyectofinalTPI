@@ -105,5 +105,11 @@ class JuegoController extends Controller
             
         }
     }
-       
+    public function RPG(Request $request)
+    {
+        if($request->ajax()) {
+            return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'RPG')->get();
+            
+        }
+    }
 }

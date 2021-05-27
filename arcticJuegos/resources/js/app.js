@@ -16,6 +16,7 @@ Vue.use(Vuetify)
 import Estrategia from './components/route_vue/Estrategia.vue'
 import Carrera from './components/route_vue/Carreras.vue'
 import Principal from './components/route_vue/Principal.vue'
+import RPG from './components/route_vue/RPG.vue'
 
 
 const router = new VueRouter({
@@ -35,6 +36,11 @@ const router = new VueRouter({
             path: '/juegoestrategia',
             name: 'estrategia',
             component: Estrategia
+        },
+        {
+            path: '/juegorpg',
+            name: 'rpg',
+            component: RPG
         },
     ],
 });

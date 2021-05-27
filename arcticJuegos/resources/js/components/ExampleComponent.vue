@@ -26,6 +26,14 @@
                         <v-list-item-title>ESTRATEGIA</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
+                                <v-list-item link to="/juegorpg">
+                    <v-list-item-action>
+                        <v-icon>mdi-flask-round-bottom</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>RPG</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
             </v-list>
         </v-navigation-drawer>
         <v-app-bar app clipped-left>
