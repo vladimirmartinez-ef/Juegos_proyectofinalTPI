@@ -23,6 +23,8 @@ Route::resource('/juego', 'JuegoController');
 
 Route::get('/carreras', 'JuegoController@carrera');
 
+Route::get('/rpg', 'JuegoController@rpg');
+
 Route::get('/estrategia', 'JuegoController@estrategia');
 
 Route::get('/juegocarrera', function() {
@@ -33,4 +35,7 @@ Route::get('/juegoestrategia', function() {
     return view('estrategia');
 });
 
+Route::get('/juegorpg', function() {
+    return view('rpg');
+});
 Route::get('/home', 'HomeController@index')->name('home');
