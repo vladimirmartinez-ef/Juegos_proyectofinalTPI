@@ -38810,7 +38810,7 @@ var render = function() {
                 [
                   _c(
                     "v-list-item-action",
-                    [_c("v-icon", [_vm._v("mdi-flask-round-bottom")])],
+                    [_c("v-icon", [_vm._v("mdi-sword")])],
                     1
                   ),
                   _vm._v(" "),
