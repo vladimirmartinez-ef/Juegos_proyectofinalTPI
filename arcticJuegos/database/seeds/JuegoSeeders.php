@@ -370,7 +370,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Bungie - Activision";
         $juegos->precio = 87.99;
-        $juegos->image = "https://images.app.goo.gl/3ugk2eYsHg9tQQZS7";
+        $juegos->image = "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2017/06/destiny_2_caratula.png?itok=3014kE94";
         $juegos->save();
 
         $juegos = new Juego();
@@ -382,7 +382,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Crytek";
         $juegos->precio = 22.99;
-        $juegos->image = "https://images.app.goo.gl/N2UBgg3TMPeLDUix7";
+        $juegos->image = "https://image.api.playstation.com/vulcan/ap/rnd/202009/0715/rNqpXMO3CX4zfiNMwiFNpWf5.png";
         $juegos->save();
 
         $juegos = new Juego();
@@ -394,7 +394,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Activision";
         $juegos->precio = 236.34;
-        $juegos->image = "https://images.app.goo.gl/dXwHyoS3FUvP65op8";
+        $juegos->image = "https://www.tonica.la/__export/1588799347389/sites/debate/img/2020/05/06/call-of-duty-black-ops-2-portada.jpg_423682103.jpg";
         $juegos->save();
 
         $juegos = new Juego();
@@ -406,7 +406,7 @@ class JuegoSeeders extends Seeder
         $juegos->estado = "disponible";
         $juegos->proveedor = "Bethesda Softworks";
         $juegos->precio = 84.41;
-        $juegos->image = "https://images.app.goo.gl/ZeLiDPTSLvVToQhp7";
+        $juegos->image = "https://image.api.playstation.com/vulcan/ap/rnd/202009/2814/GGyEnCkIXoyiVlN9sRHkzUPo.png";
         $juegos->save();
 
         //JUEGOS DE ESTRATEGIA
