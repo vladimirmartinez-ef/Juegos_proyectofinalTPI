@@ -18,7 +18,7 @@ class CreateJuegoClavesTable extends Migration
             $table->bigInteger('idjuegos')->unsigned();
             $table->bigInteger('idclaves')->unsigned();
             $table->boolean('estadoclave')->default(true);
-            $table->foreign('idjuegos')->references('idjuegos')->on('juegos');
+            $table->foreign('idjuegos')->references('id')->on('juegos');
             $table->foreign('idclaves')->references('idclave')->on('claves');
             $table->timestamps();
         });

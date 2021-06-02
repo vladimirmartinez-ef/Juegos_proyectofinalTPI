@@ -1834,6 +1834,405 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Compra.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Compra.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    gameCompra: Object,
+    gameClave: Object
+  },
+  data: function data() {
+    return {
+      valid: true,
+      factura: [],
+      dialog: false,
+      nombre: "",
+      apellido: "",
+      tarjeta: "",
+      cvv: "",
+      email: "",
+      nombreRule: [function (v) {
+        return !!v || "Campo Requerido";
+      }, function (v) {
+        return /^[A-Z]{1,1}[a-z]{0,100}$/.test(v) || "La primera letra debe ser Mayuscula y las demas minusculas";
+      }],
+      apellidoRule: [function (v) {
+        return !!v || "Campo Requerido";
+      }, function (v) {
+        return /^[A-Z]{1,1}[a-z]{0,100}$/.test(v) || "La primera letra debe ser Mayuscula y las demas minusculas";
+      }],
+      emailRule: [function (v) {
+        return !!v || "Campo Requerido";
+      }, //   [a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*
+      function (v) {
+        return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(v) || "Email no valido, requiere de @ ";
+      }],
+      tarjetaRule: [function (v) {
+        return !!v || "Campo Requerido";
+      }, function (v) {
+        return /^[0-9]{16,16}$/.test(v) || "La tarjeta corresponde de 16 digitos";
+      }],
+      cvvRule: [function (v) {
+        return !!v || "Campo Requerido";
+      }, function (v) {
+        return /^[0-9]{3,3}$/.test(v) || "El cvv corresponde de 3 digitos";
+      }],
+      selectm: null,
+      selecta: null,
+      mes: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+      años: ["2022", "2024", "2025", "2026", "2027", "2028"],
+      snackbar: false,
+      newFact: {},
+      text: "Compra Realizada, la factura se envio a su correo!!    (Espera mientras la pagina se recarga sola)"
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      if (this.$refs.formfactura.validate()) {
+        var this2 = this;
+        var facturaNueva = {
+          idjuegos: this.gameClave.idjuegos,
+          idclaves: this.gameClave.idclaves,
+          nombre: this.nombre,
+          apellido: this.apellido,
+          email: this.email,
+          pagocancelado: this.gameCompra.precio
+        };
+        axios.post("/factura", facturaNueva).then(function (res) {
+          console.log(res.data); //no necesito traer factura...si...
+
+          this2.newFact = res.data;
+
+          _this.clavejuego();
+        });
+      }
+    },
+    clavejuego: function clavejuego() {
+      var _this2 = this;
+
+      var ids = {
+        id: this.gameClave.id,
+        idclaves: this.gameClave.idclaves,
+        estadoclave: false
+      };
+      axios.put("/juegoclave/".concat(this.gameClave.id), ids).then(function (resp) {
+        console.log("se hizo put...");
+
+        _this2.clavejuegoget();
+      });
+    },
+    clavejuegoget: function clavejuegoget() {
+      var _this3 = this;
+
+      var array = [];
+      axios.get("/juegoclave").then(function (respu) {
+        console.log(respu.data);
+        var jucla = respu.data;
+
+        for (var index = 0; index < jucla.length; index++) {
+          if (jucla[index].idjuegos == _this3.gameClave.idjuegos) {
+            array.push(jucla[index]);
+          }
+        }
+
+        if (array.length > 0) {
+          console.log("todo bien");
+
+          _this3.sendgrid();
+        } else {
+          _this3.juegosput();
+        }
+      });
+    },
+    juegosput: function juegosput() {
+      var _this4 = this;
+
+      var newgame = {
+        nombrejuego: this.gameCompra.nombrejuego,
+        descripcion: this.gameCompra.descripcion,
+        requerimientos: this.gameCompra.requerimientos,
+        sistema: this.gameCompra.sistema,
+        idclasificacion: this.gameCompra.idclasificacion,
+        estado: "nodisponible",
+        proveedor: this.gameCompra.proveedor,
+        precio: this.gameCompra.precio,
+        image: this.gameCompra.image
+      };
+      axios.put("/juego/".concat(this.gameCompra.id), newgame).then(function (resp) {
+        console.log("se hizo put...");
+
+        _this4.sendgrid();
+      });
+    },
+    sendgrid: function sendgrid() {
+      var _this5 = this;
+
+      var newFactura = {
+        idfactura: this.newFact.id,
+        nombrejuego: this.gameCompra.nombrejuego,
+        nombreclave: this.gameClave.clave,
+        nombre: this.newFact.nombre,
+        apellido: this.newFact.apellido,
+        email: this.newFact.email,
+        pagocancelado: this.newFact.pagocancelado
+      };
+      axios.post("/sendemail", newFactura).then(function (res) {
+        _this5.$refs.formfactura.reset();
+
+        _this5.snackbar = true;
+        setTimeout(_this5.recargar, 6000);
+      });
+    },
+    clear: function clear() {
+      this.$refs.formfactura.reset();
+      this.dialog = false;
+    },
+    recargar: function recargar() {
+      this.dialog = false;
+      location.reload();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Detalles.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Detalles.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    gameUniverse: Object
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      juegos: [],
+      ver: false
+    };
+  },
+  methods: {
+    traer: function traer(id) {
+      var _this = this;
+
+      var thisv = this;
+      axios.get("/juegoclave").then(function (res) {
+        console.log('entro............');
+        var hola = res.data;
+
+        for (var index = 0; index < hola.length; index++) {
+          if (hola[index].idjuegos == id) {
+            _this.juegos = hola[index];
+            console.log(_this.juegos);
+            break;
+          }
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -1845,6 +2244,137 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2796,6 +3326,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
+Vue.component('detalles', __webpack_require__(/*! ./components/Detalles.vue */ "./resources/js/components/Detalles.vue").default);
+Vue.component('compra', __webpack_require__(/*! ./components/Compra.vue */ "./resources/js/components/Compra.vue").default);
 
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__.default);
 
@@ -38360,6 +38892,84 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/js/components/Compra.vue":
+/*!********************************************!*\
+  !*** ./resources/js/components/Compra.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Compra_vue_vue_type_template_id_6433f4a9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Compra.vue?vue&type=template&id=6433f4a9& */ "./resources/js/components/Compra.vue?vue&type=template&id=6433f4a9&");
+/* harmony import */ var _Compra_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Compra.vue?vue&type=script&lang=js& */ "./resources/js/components/Compra.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Compra_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Compra_vue_vue_type_template_id_6433f4a9___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Compra_vue_vue_type_template_id_6433f4a9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Compra.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Detalles.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Detalles.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Detalles_vue_vue_type_template_id_e00d0d72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Detalles.vue?vue&type=template&id=e00d0d72& */ "./resources/js/components/Detalles.vue?vue&type=template&id=e00d0d72&");
+/* harmony import */ var _Detalles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Detalles.vue?vue&type=script&lang=js& */ "./resources/js/components/Detalles.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Detalles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Detalles_vue_vue_type_template_id_e00d0d72___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Detalles_vue_vue_type_template_id_e00d0d72___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Detalles.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -38555,6 +39165,38 @@ component.options.__file = "resources/js/components/route_vue/RPG.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Compra.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/Compra.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Compra_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Compra.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Compra.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Compra_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Detalles.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/Detalles.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Detalles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Detalles.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Detalles.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Detalles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -38632,6 +39274,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RPG_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RPG.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/route_vue/RPG.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RPG_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Compra.vue?vue&type=template&id=6433f4a9&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/Compra.vue?vue&type=template&id=6433f4a9& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Compra_vue_vue_type_template_id_6433f4a9___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Compra_vue_vue_type_template_id_6433f4a9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Compra_vue_vue_type_template_id_6433f4a9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Compra.vue?vue&type=template&id=6433f4a9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Compra.vue?vue&type=template&id=6433f4a9&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Detalles.vue?vue&type=template&id=e00d0d72&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/Detalles.vue?vue&type=template&id=e00d0d72& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Detalles_vue_vue_type_template_id_e00d0d72___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Detalles_vue_vue_type_template_id_e00d0d72___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Detalles_vue_vue_type_template_id_e00d0d72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Detalles.vue?vue&type=template&id=e00d0d72& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Detalles.vue?vue&type=template&id=e00d0d72&");
+
 
 /***/ }),
 
@@ -38716,6 +39392,608 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RPG_vue_vue_type_template_id_74d4188f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RPG_vue_vue_type_template_id_74d4188f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RPG.vue?vue&type=template&id=74d4188f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/route_vue/RPG.vue?vue&type=template&id=74d4188f&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Compra.vue?vue&type=template&id=6433f4a9&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Compra.vue?vue&type=template&id=6433f4a9& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-row",
+    [
+      _c(
+        "v-dialog",
+        {
+          attrs: {
+            transition: "dialog-top-transition",
+            "max-width": "1200",
+            width: "1200",
+            persistent: ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "activator",
+              fn: function(ref) {
+                var on = ref.on
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._g(
+                      _vm._b(
+                        { attrs: { color: "green" } },
+                        "v-btn",
+                        attrs,
+                        false
+                      ),
+                      on
+                    ),
+                    [_vm._v("COMPRAR")]
+                  )
+                ]
+              }
+            }
+          ]),
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _vm._v(" "),
+          _c(
+            "v-card",
+            { staticClass: "purple" },
+            [
+              _c(
+                "v-card-title",
+                { staticClass: "headline" },
+                [
+                  _vm._v(
+                    "\n        llenar formulario : " +
+                      _vm._s(_vm.gameClave.idclaves) +
+                      " - " +
+                      _vm._s(_vm.gameClave.clave) +
+                      "-\n        " +
+                      _vm._s(_vm.gameClave.id) +
+                      "\n        "
+                  ),
+                  _c(
+                    "v-snackbar",
+                    {
+                      attrs: { color: "green" },
+                      model: {
+                        value: _vm.snackbar,
+                        callback: function($$v) {
+                          _vm.snackbar = $$v
+                        },
+                        expression: "snackbar"
+                      }
+                    },
+                    [_c("h3", [_vm._v(" " + _vm._s(_vm.text) + " ")])]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-card-text",
+                [
+                  _c(
+                    "v-form",
+                    {
+                      ref: "formfactura",
+                      staticClass: "purple p-3",
+                      attrs: { "lazy-validation": "" },
+                      model: {
+                        value: _vm.valid,
+                        callback: function($$v) {
+                          _vm.valid = $$v
+                        },
+                        expression: "valid"
+                      }
+                    },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "auto" } },
+                        [
+                          _c(
+                            "v-row",
+                            [
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      rules: _vm.nombreRule,
+                                      label: "Nombre",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.nombre,
+                                      callback: function($$v) {
+                                        _vm.nombre = $$v
+                                      },
+                                      expression: "nombre"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      rules: _vm.apellidoRule,
+                                      label: "Apellido",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.apellido,
+                                      callback: function($$v) {
+                                        _vm.apellido = $$v
+                                      },
+                                      expression: "apellido"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-row",
+                            [
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      rules: _vm.emailRule,
+                                      label: "E-mail",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.email,
+                                      callback: function($$v) {
+                                        _vm.email = $$v
+                                      },
+                                      expression: "email"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-row",
+                            [
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      rules: _vm.tarjetaRule,
+                                      label: "Numero Tarjeta",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.tarjeta,
+                                      callback: function($$v) {
+                                        _vm.tarjeta = $$v
+                                      },
+                                      expression: "tarjeta"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      rules: _vm.cvvRule,
+                                      label: "CVV",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.cvv,
+                                      callback: function($$v) {
+                                        _vm.cvv = $$v
+                                      },
+                                      expression: "cvv"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-row",
+                            [
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.mes,
+                                      label: "Mes",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.selectm,
+                                      callback: function($$v) {
+                                        _vm.selectm = $$v
+                                      },
+                                      expression: "selectm"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                [
+                                  _c("v-select", {
+                                    attrs: {
+                                      items: _vm.años,
+                                      label: "Año",
+                                      required: ""
+                                    },
+                                    model: {
+                                      value: _vm.selecta,
+                                      callback: function($$v) {
+                                        _vm.selecta = $$v
+                                      },
+                                      expression: "selecta"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-card-actions",
+                [
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    {
+                      staticClass: "mr-4",
+                      attrs: { disabled: !_vm.valid },
+                      on: { click: _vm.submit }
+                    },
+                    [_vm._v(" Hecho ")]
+                  ),
+                  _vm._v(" "),
+                  _c("v-btn", { on: { click: _vm.clear } }, [
+                    _vm._v(" cancelar ")
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Detalles.vue?vue&type=template&id=e00d0d72&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Detalles.vue?vue&type=template&id=e00d0d72& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-row",
+    { attrs: { justify: "center" } },
+    [
+      _c(
+        "v-dialog",
+        {
+          attrs: {
+            fullscreen: "",
+            "hide-overlay": "",
+            transition: "dialog-bottom-transition"
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "activator",
+              fn: function(ref) {
+                var on = ref.on
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._g(
+                      _vm._b(
+                        {
+                          attrs: { color: "green", dark: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.traer(_vm.gameUniverse.id)
+                            }
+                          }
+                        },
+                        "v-btn",
+                        attrs,
+                        false
+                      ),
+                      on
+                    ),
+                    [_vm._v(" DETALLES ")]
+                  )
+                ]
+              }
+            }
+          ]),
+          model: {
+            value: _vm.dialog,
+            callback: function($$v) {
+              _vm.dialog = $$v
+            },
+            expression: "dialog"
+          }
+        },
+        [
+          _vm._v(" "),
+          _c(
+            "v-card",
+            [
+              _c(
+                "v-toolbar",
+                { attrs: { dark: "", color: "primary" } },
+                [
+                  _c(
+                    "v-btn",
+                    {
+                      attrs: { icon: "", dark: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.dialog = false
+                        }
+                      }
+                    },
+                    [_c("v-icon", [_vm._v("mdi-close")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-toolbar-title", [
+                    _vm._v(_vm._s(_vm.gameUniverse.nombrejuego))
+                  ]),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-toolbar-items",
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { dark: "", text: "" },
+                          on: {
+                            click: function($event) {
+                              _vm.dialog = false
+                            }
+                          }
+                        },
+                        [_vm._v(" Salir ")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                { staticClass: "pa-3" },
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { md: "6" } },
+                    [
+                      _c("v-img", {
+                        attrs: {
+                          src: _vm.gameUniverse.image,
+                          "max-width": "500",
+                          "max-height": "300"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { attrs: { md: "6" } },
+                    [
+                      _c("div", [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "purple--text",
+                            staticStyle: { "text-shadow": "1px 1px 2px white" }
+                          },
+                          [_vm._v("\n              Descripción:\n            ")]
+                        ),
+                        _vm._v(" "),
+                        _c("h4", [_vm._v(_vm._s(_vm.gameUniverse.descripcion))])
+                      ]),
+                      _vm._v(" "),
+                      _c("v-divider", { staticClass: "green" }),
+                      _vm._v(" "),
+                      _c("h1", [_vm._v("$" + _vm._s(_vm.gameUniverse.precio))]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "pa-3",
+                          attrs: { "justify-center": "" }
+                        },
+                        [
+                          _c("compra", {
+                            attrs: {
+                              gameCompra: _vm.gameUniverse,
+                              gameClave: _vm.juegos
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-divider"),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c("v-col", { attrs: { md: "6" } }, [
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "purple--text",
+                        staticStyle: { "text-shadow": "1px 1px 2px white" }
+                      },
+                      [_vm._v("\n            Clasificación:\n          ")]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.clasificacion))]),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "green" }),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "purple--text",
+                        staticStyle: { "text-shadow": "1px 1px 2px white" }
+                      },
+                      [_vm._v("\n            Requerimientos:\n          ")]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.requerimientos))])
+                  ]),
+                  _vm._v(" "),
+                  _c("v-col", { attrs: { md: "6" } }, [
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "purple--text",
+                        staticStyle: { "text-shadow": "1px 1px 2px white" }
+                      },
+                      [_vm._v("\n            Proveedor:\n          ")]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.proveedor))]),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "green" }),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "purple--text",
+                        staticStyle: { "text-shadow": "1px 1px 2px white" }
+                      },
+                      [_vm._v("\n            Sistema:\n          ")]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.sistema))]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("clave: " + _vm._s(_vm.juegos.idclaves))]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("clave: " + _vm._s(_vm.juegos.clave))])
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -38839,7 +40117,7 @@ var render = function() {
               _c("v-icon", { attrs: { color: "blue", size: "100px" } }, [
                 _vm._v("mdi-gamepad-variant")
               ]),
-              _vm._v("Arctic Game Universe")
+              _vm._v("Arctic\n      Game Universe")
             ],
             1
           )
@@ -38853,7 +40131,371 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("v-footer", { attrs: { app: "" } })
+      _c(
+        "v-footer",
+        [
+          _c(
+            "v-row",
+            [
+              _c("v-col", { attrs: { cols: "3" } }),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { attrs: { cols: "3" } },
+                [
+                  _c(
+                    "v-card",
+                    { staticStyle: { height: "375px" } },
+                    [
+                      _c(
+                        "v-toolbar",
+                        {
+                          staticClass: "text-center",
+                          attrs: { color: "teal", dark: "" }
+                        },
+                        [_c("v-toolbar-title", [_vm._v("Misión y Visión")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        [
+                          [
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c(
+                                      "v-list-item-title",
+                                      [
+                                        _c("v-icon", [
+                                          _vm._v("mdi-bag-personal")
+                                        ]),
+                                        _vm._v("\n                    Misión")
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-list-item-subtitle", [
+                                      _vm._v(
+                                        "Establecer a nuestra comunidad y pais una "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    forma de entretenimiento, diversión y reflax"
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    de manera ágil y dinámica."
+                                      )
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c(
+                                      "v-list-item-title",
+                                      [
+                                        _c("v-icon", [
+                                          _vm._v("mdi-eye-outline")
+                                        ]),
+                                        _vm._v("\n                    Visión")
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-list-item-subtitle", [
+                                      _vm._v(
+                                        "Deseamos ser una empresa reconocidad"
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                     por su calidad y variedad en entretenimiento"
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    y mejorar la forma de conseguir nuestros "
+                                      ),
+                                      _c("br"),
+                                      _vm._v("\n                    juegos.")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { attrs: { cols: "3" } },
+                [
+                  _c(
+                    "v-card",
+                    { staticStyle: { height: "375px" } },
+                    [
+                      _c(
+                        "v-toolbar",
+                        {
+                          staticClass: "text-center",
+                          attrs: { color: "teal", dark: "" }
+                        },
+                        [_c("v-toolbar-title", [_vm._v("Información")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        [
+                          [
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c(
+                                      "v-list-item-title",
+                                      [
+                                        _c("v-icon", [
+                                          _vm._v("mdi-information-outline")
+                                        ]),
+                                        _vm._v("\n                    Help")
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-list-item-subtitle", [
+                                      _vm._v(
+                                        "Para poder obtener un juego necesitas "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    seleccionar el que deseas e ir a detalles "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    verifica si es compatible con tu pc "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    dale click a comprar, llena el formulario "
+                                      ),
+                                      _c("br"),
+                                      _vm._v("\n                    y hecho.")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c(
+                                      "v-list-item-title",
+                                      [
+                                        _c("v-icon", [_vm._v("mdi-alert")]),
+                                        _vm._v(
+                                          " Indicaciones\n                    importantes"
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("v-list-item-subtitle", [
+                                      _vm._v(
+                                        "Es importante que al llenar el campo email "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    en el formulario escribas una dirección de"
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                     correo valida y de la que recuerdes tu "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    contraseña dado que al mismo se te"
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    enviará la factura junto con la clave "
+                                      ),
+                                      _c("br"),
+                                      _vm._v(
+                                        "\n                    que activará tu juego."
+                                      )
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-col",
+                { attrs: { cols: "3" } },
+                [
+                  _c(
+                    "v-card",
+                    { staticStyle: { height: "375px" } },
+                    [
+                      _c(
+                        "v-toolbar",
+                        {
+                          staticClass: "text-center",
+                          attrs: { color: "teal", dark: "" }
+                        },
+                        [_c("v-toolbar-title", [_vm._v("Contactanos")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-list",
+                        [
+                          [
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-action",
+                                  [_c("v-icon", [_vm._v("mdi-facebook")])],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c("v-list-item-title", [
+                                      _vm._v("Arctic Games Universe Official")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-action",
+                                  [_c("v-icon", [_vm._v("mdi-instagram")])],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c("v-list-item-title", [
+                                      _vm._v("arcticgu_official")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-action",
+                                  [_c("v-icon", [_vm._v("mdi-twitter")])],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c("v-list-item-title", [
+                                      _vm._v("arctic_games_universe_offi")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-item",
+                              [
+                                _c(
+                                  "v-list-item-action",
+                                  [_c("v-icon", [_vm._v("mdi-whatsapp")])],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c("v-list-item-title", [
+                                      _vm._v("(503) 4567-7880")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )

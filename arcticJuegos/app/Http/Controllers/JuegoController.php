@@ -22,7 +22,6 @@ class JuegoController extends Controller
 
             // return Juego::join("clasificacions","juegos.idclasificacion","=","clasificacions.idclasificacion")->where('estado','disponible')->where('clasificacions.clasificacion', 'combate')->get();
         }
-
     }
 
     /**
@@ -77,7 +76,11 @@ class JuegoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $juego = Juego::find($id);
+        $juego->estado = $request->estado;
+        $juego->save();
+        // return $juego;
+        return view('welcome');
     }
 
     /**
@@ -92,24 +95,21 @@ class JuegoController extends Controller
     }
     public function carrera(Request $request)
     {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'carreras')->get();
-            
         }
     }
 
     public function estrategia(Request $request)
     {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'estrategia')->get();
-            
         }
     }
     public function RPG(Request $request)
     {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'RPG')->get();
-            
         }
     }
 }

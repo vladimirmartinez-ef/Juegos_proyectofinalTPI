@@ -5,6 +5,8 @@ window.Vue = require('vue').default;
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('detalles', require('./components/Detalles.vue').default);
+Vue.component('compra', require('./components/Compra.vue').default);
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)

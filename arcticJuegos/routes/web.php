@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +25,10 @@ Auth::routes();
 
 Route::resource('/juego', 'JuegoController');
 
+Route::resource('/juegoclave', 'JuegoClavesController');
+
+Route::resource('/factura','FacturaController');
+
 Route::get('/carreras', 'JuegoController@carrera');
 
 Route::get('/rpg', 'JuegoController@rpg');
@@ -39,3 +47,17 @@ Route::get('/juegorpg', function() {
     return view('rpg');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/sendemail', function () {
+    if(Request::get('nombre')!=null)
+    $data = array('idfact' => Request::get('idfactura'), 'nombre' => Request::get('nombre'), 'nombregame' => Request::get('nombrejuego'), 'nombreclv' => Request::get('nombreclave'), 'apellido' => Request::get('apellido'), 'pagocancel' => Request::get('pagocancelado') );
+    else
+    $data= array('bodyMessage' => 'Hola este es un mensaje');
+
+    Mail::send('email', $data, function ($message) {
+        $message->from('arcticgamesuniverse@hotmail.com', 'Arctic Games Universe');
+        // $message->from('vemf.vemf@hotmail.com', 'Arctic Games Universe');
+        $message->to(Request::get('email'))->subject('Factura de Compra (A.G.U.)');
+    });
+    return Redirect::back();
+});
