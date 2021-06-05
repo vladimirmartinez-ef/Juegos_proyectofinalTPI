@@ -1953,6 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     gameCompra: Object,
@@ -1999,8 +2000,9 @@ __webpack_require__.r(__webpack_exports__);
       mes: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
       años: ["2022", "2024", "2025", "2026", "2027", "2028"],
       snackbar: false,
+      loading: false,
       newFact: {},
-      text: "Compra Realizada, la factura se envio a su correo!!    (Espera mientras la pagina se recarga sola)"
+      text: "Compra Realizada, la factura se envio a su correo!! <br>   (Espera mientras la pagina se recarga sola)"
     };
   },
   methods: {
@@ -2009,6 +2011,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.$refs.formfactura.validate()) {
         var this2 = this;
+        this.loading = true;
         var facturaNueva = {
           idjuegos: this.gameClave.idjuegos,
           idclaves: this.gameClave.idclaves,
@@ -2096,6 +2099,8 @@ __webpack_require__.r(__webpack_exports__);
         pagocancelado: this.newFact.pagocancelado
       };
       axios.post("/sendemail", newFactura).then(function (res) {
+        _this5.loading = false;
+
         _this5.$refs.formfactura.reset();
 
         _this5.snackbar = true;
@@ -2856,6 +2861,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -39435,7 +39458,7 @@ var render = function() {
                     "v-btn",
                     _vm._g(
                       _vm._b(
-                        { attrs: { color: "green" } },
+                        { attrs: { color: "light-green accent-4" } },
                         "v-btn",
                         attrs,
                         false
@@ -39466,15 +39489,12 @@ var render = function() {
                 "v-card-title",
                 { staticClass: "headline" },
                 [
-                  _vm._v(
-                    "\n        llenar formulario : " +
-                      _vm._s(_vm.gameClave.idclaves) +
-                      " - " +
-                      _vm._s(_vm.gameClave.clave) +
-                      "-\n        " +
-                      _vm._s(_vm.gameClave.id) +
-                      "\n        "
+                  _c(
+                    "h3",
+                    { staticStyle: { "text-shadow": "1px 1px 3px black" } },
+                    [_vm._v("Llene Formulario")]
                   ),
+                  _vm._v(" "),
                   _c(
                     "v-snackbar",
                     {
@@ -39487,7 +39507,7 @@ var render = function() {
                         expression: "snackbar"
                       }
                     },
-                    [_c("h3", [_vm._v(" " + _vm._s(_vm.text) + " ")])]
+                    [_c("h4", [_vm._v(" " + _vm._s(_vm.text) + " ")])]
                   )
                 ],
                 1
@@ -39705,16 +39725,18 @@ var render = function() {
                   _c(
                     "v-btn",
                     {
-                      staticClass: "mr-4",
-                      attrs: { disabled: !_vm.valid },
+                      staticClass: "mr-4 black",
+                      attrs: { disabled: !_vm.valid, loading: _vm.loading },
                       on: { click: _vm.submit }
                     },
                     [_vm._v(" Hecho ")]
                   ),
                   _vm._v(" "),
-                  _c("v-btn", { on: { click: _vm.clear } }, [
-                    _vm._v(" cancelar ")
-                  ])
+                  _c(
+                    "v-btn",
+                    { staticClass: "grey darken-2", on: { click: _vm.clear } },
+                    [_vm._v(" cancelar ")]
+                  )
                 ],
                 1
               )
@@ -39775,7 +39797,7 @@ var render = function() {
                     _vm._g(
                       _vm._b(
                         {
-                          attrs: { color: "green", dark: "" },
+                          attrs: { color: "yellow darken-4", dark: "" },
                           on: {
                             click: function($event) {
                               return _vm.traer(_vm.gameUniverse.id)
@@ -39809,7 +39831,7 @@ var render = function() {
             [
               _c(
                 "v-toolbar",
-                { attrs: { dark: "", color: "primary" } },
+                { attrs: { dark: "", color: "indigo darken-1" } },
                 [
                   _c(
                     "v-btn",
@@ -39825,7 +39847,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-toolbar-title", [
+                  _c("v-toolbar-title", { staticClass: "h1" }, [
                     _vm._v(_vm._s(_vm.gameUniverse.nombrejuego))
                   ]),
                   _vm._v(" "),
@@ -39925,7 +39947,7 @@ var render = function() {
                 [
                   _c("v-col", { attrs: { md: "6" } }, [
                     _c(
-                      "h4",
+                      "h3",
                       {
                         staticClass: "purple--text",
                         staticStyle: { "text-shadow": "1px 1px 2px white" }
@@ -39933,12 +39955,12 @@ var render = function() {
                       [_vm._v("\n            Clasificación:\n          ")]
                     ),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.clasificacion))]),
+                    _c("h4", [_vm._v(_vm._s(_vm.gameUniverse.clasificacion))]),
                     _vm._v(" "),
                     _c("hr", { staticClass: "green" }),
                     _vm._v(" "),
                     _c(
-                      "h4",
+                      "h3",
                       {
                         staticClass: "purple--text",
                         staticStyle: { "text-shadow": "1px 1px 2px white" }
@@ -39946,12 +39968,12 @@ var render = function() {
                       [_vm._v("\n            Requerimientos:\n          ")]
                     ),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.requerimientos))])
+                    _c("h4", [_vm._v(_vm._s(_vm.gameUniverse.requerimientos))])
                   ]),
                   _vm._v(" "),
                   _c("v-col", { attrs: { md: "6" } }, [
                     _c(
-                      "h4",
+                      "h3",
                       {
                         staticClass: "purple--text",
                         staticStyle: { "text-shadow": "1px 1px 2px white" }
@@ -39959,12 +39981,12 @@ var render = function() {
                       [_vm._v("\n            Proveedor:\n          ")]
                     ),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.proveedor))]),
+                    _c("h4", [_vm._v(_vm._s(_vm.gameUniverse.proveedor))]),
                     _vm._v(" "),
                     _c("hr", { staticClass: "green" }),
                     _vm._v(" "),
                     _c(
-                      "h4",
+                      "h3",
                       {
                         staticClass: "purple--text",
                         staticStyle: { "text-shadow": "1px 1px 2px white" }
@@ -39972,11 +39994,7 @@ var render = function() {
                       [_vm._v("\n            Sistema:\n          ")]
                     ),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.gameUniverse.sistema))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("clave: " + _vm._s(_vm.juegos.idclaves))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("clave: " + _vm._s(_vm.juegos.clave))])
+                    _c("h4", [_vm._v(_vm._s(_vm.gameUniverse.sistema))])
                   ])
                 ],
                 1
@@ -41367,54 +41385,92 @@ var render = function() {
                   "v-row",
                   _vm._l(props.items, function(item, index) {
                     return _c("v-col", { key: index, attrs: { cols: "12" } }, [
-                      _c("div", { staticClass: "card mb-2 blue" }, [
-                        _c(
-                          "div",
-                          { staticClass: "card-header green darken-1" },
-                          [_vm._v(_vm._s(item.nombrejuego))]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row no-gutters" }, [
-                          _c("div", { staticClass: "col-md-5" }, [
-                            _c("img", {
-                              staticClass: "img-fluid",
-                              staticStyle: { height: "250px", width: "420px" },
-                              attrs: { src: item.image }
-                            })
-                          ]),
+                      _c(
+                        "div",
+                        { staticClass: "card mb-2 blue darken-3 p-1" },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "card-header grey darken-1" },
+                            [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(item.nombrejuego) +
+                                  "\n            "
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-7" }, [
-                            _c(
-                              "div",
-                              { staticClass: "card-body" },
-                              [
-                                _c("h5", { staticClass: "card-title" }, [
-                                  _vm._v(_vm._s(item.precio) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "card-text" }, [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(item.descripcion) +
-                                      "\n                  "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "card-text" }, [
-                                  _c("small", { staticClass: "text-bold" }, [
-                                    _vm._v(_vm._s(item.clasificacion))
+                          _c("div", { staticClass: "row no-gutters" }, [
+                            _c("div", { staticClass: "col-md-5" }, [
+                              _c("img", {
+                                staticClass: "img-fluid",
+                                staticStyle: {
+                                  height: "250px",
+                                  width: "420px"
+                                },
+                                attrs: { src: item.image }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-7" }, [
+                              _c("div", { staticClass: "card-body" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c("h1", { staticClass: "card-title" }, [
+                                      _vm._v("$" + _vm._s(item.precio))
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    _c(
+                                      "h5",
+                                      {
+                                        staticClass:
+                                          "card-text text-bold text-right"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                        " +
+                                            _vm._s(item.clasificacion) +
+                                            "\n                      "
+                                        )
+                                      ]
+                                    )
                                   ])
                                 ]),
                                 _vm._v(" "),
-                                _c("detalles", {
-                                  attrs: { gameUniverse: item }
-                                })
-                              ],
-                              1
-                            )
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c("h5", { staticClass: "card-text" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(item.descripcion) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "m-2" },
+                                      [
+                                        _c("detalles", {
+                                          attrs: { gameUniverse: item }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ])
                           ])
-                        ])
-                      ])
+                        ]
+                      )
                     ])
                   }),
                   1

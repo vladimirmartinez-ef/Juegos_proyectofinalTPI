@@ -7,14 +7,14 @@
       transition="dialog-bottom-transition"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="green" dark v-bind="attrs" v-on="on" @click="traer(gameUniverse.id)"> DETALLES </v-btn>
+        <v-btn color="yellow darken-4" dark v-bind="attrs" v-on="on" @click="traer(gameUniverse.id)"> DETALLES </v-btn>
       </template>
       <v-card>
-        <v-toolbar dark color="primary">
+        <v-toolbar dark color="indigo darken-1">
           <v-btn icon dark @click="dialog = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>{{ gameUniverse.nombrejuego }}</v-toolbar-title>
+          <v-toolbar-title class="h1">{{ gameUniverse.nombrejuego }}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
             <v-btn dark text @click="dialog = false"> Salir </v-btn>
@@ -42,28 +42,28 @@
         <v-divider></v-divider>
         <v-row>
           <v-col md="6">
-            <h4 class="purple--text" style="text-shadow: 1px 1px 2px white">
+            <h3 class="purple--text" style="text-shadow: 1px 1px 2px white">
               Clasificación:
-            </h4>
-            <p>{{ gameUniverse.clasificacion }}</p>
+            </h3>
+            <h4>{{ gameUniverse.clasificacion }}</h4>
             <hr class="green" />
-            <h4 class="purple--text" style="text-shadow: 1px 1px 2px white">
+            <h3 class="purple--text" style="text-shadow: 1px 1px 2px white">
               Requerimientos:
-            </h4>
-            <p>{{ gameUniverse.requerimientos }}</p>
+            </h3>
+            <h4>{{ gameUniverse.requerimientos }}</h4>
           </v-col>
           <v-col md="6">
-            <h4 class="purple--text" style="text-shadow: 1px 1px 2px white">
+            <h3 class="purple--text" style="text-shadow: 1px 1px 2px white">
               Proveedor:
-            </h4>
-            <p>{{ gameUniverse.proveedor }}</p>
+            </h3>
+            <h4>{{ gameUniverse.proveedor }}</h4>
             <hr class="green" />
-            <h4 class="purple--text" style="text-shadow: 1px 1px 2px white">
+            <h3 class="purple--text" style="text-shadow: 1px 1px 2px white">
               Sistema:
-            </h4>
-            <p>{{ gameUniverse.sistema }}</p>
-            <p>clave: {{juegos.idclaves}}</p>
-            <p>clave: {{juegos.clave}}</p>
+            </h3>
+            <h4>{{ gameUniverse.sistema }}</h4>
+            <!-- <p>clave: {{juegos.idclaves}}</p>
+            <p>clave: {{juegos.clave}}</p> -->
           </v-col>
         </v-row>
       </v-card>
