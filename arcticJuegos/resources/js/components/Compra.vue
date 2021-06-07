@@ -8,14 +8,15 @@
       persistent
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="green" v-bind="attrs" v-on="on">COMPRAR</v-btn>
+        <v-btn color="light-green accent-4" v-bind="attrs" v-on="on">COMPRAR</v-btn>
       </template>
       <v-card class="purple">
         <v-card-title class="headline">
-          llenar formulario : {{ gameClave.idclaves }} - {{ gameClave.clave }}-
-          {{ gameClave.id }}
+          <h3 style="text-shadow: 1px 1px 3px black ;">Llene Formulario</h3>
+          <!-- {{ gameClave.idclaves }} - {{ gameClave.clave }}-
+          {{ gameClave.id }} -->
           <v-snackbar v-model="snackbar" color="green">
-           <h3> {{ text }} </h3>
+           <h4> {{ text }} </h4>
 
             <!-- <template v-slot:action="{ attrs }">
               <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
@@ -98,8 +99,8 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn class="mr-4" @click="submit" :disabled="!valid"> Hecho </v-btn>
-          <v-btn @click="clear"> cancelar </v-btn>
+          <v-btn class="mr-4 black" @click="submit" :disabled="!valid" :loading="loading"> Hecho </v-btn>
+          <v-btn class="grey darken-2" @click="clear"> cancelar </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -156,14 +157,16 @@ export default {
       mes: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
       años: ["2022", "2024", "2025", "2026", "2027", "2028"],
       snackbar: false,
+      loading: false,
       newFact: {},
-      text: `Compra Realizada, la factura se envio a su correo!!    (Espera mientras la pagina se recarga sola)`,
+      text: `Compra Realizada, la factura se envio a su correo!! <br>   (Espera mientras la pagina se recarga sola)`,
     };
   },
   methods: {
     submit() {
       if (this.$refs.formfactura.validate()) {
           let this2 = this;
+          this.loading = true;
           const facturaNueva = {
             idjuegos: this.gameClave.idjuegos,
             idclaves: this.gameClave.idclaves,
@@ -241,6 +244,7 @@ export default {
         }
 
         axios.post("/sendemail", newFactura).then((res) => {
+            this.loading = false;
             this.$refs.formfactura.reset();
             this.snackbar = true;
               setTimeout(this.recargar,6000);
