@@ -31,6 +31,8 @@ Route::resource('/factura','FacturaController');
 
 Route::get('/carreras', 'JuegoController@carrera');
 
+Route::get('/aventura', 'JuegoController@aventura');
+
 Route::get('/rpg', 'JuegoController@rpg');
 
 Route::get('/estrategia', 'JuegoController@estrategia');
@@ -46,6 +48,12 @@ Route::get('/juegoestrategia', function() {
 Route::get('/juegorpg', function() {
     return view('rpg');
 });
+
+Route::get('/juegoaventura', function() {
+    return view('aventura');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/sendemail', function () {

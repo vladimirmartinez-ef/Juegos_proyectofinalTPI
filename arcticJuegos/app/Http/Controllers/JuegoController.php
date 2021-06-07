@@ -111,5 +111,13 @@ class JuegoController extends Controller
         if ($request->ajax()) {
             return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'RPG')->get();
         }
+
+    }
+
+    public function aventura(Request $request)
+    {
+        if ($request->ajax()) {
+            return Juego::join("clasificacions", "juegos.idclasificacion", "=", "clasificacions.idclasificacion")->where('estado', 'disponible')->where('clasificacions.clasificacion', 'aventura')->get();
+        }
     }
 }
