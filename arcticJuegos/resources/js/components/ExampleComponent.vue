@@ -36,7 +36,7 @@
         </v-list-item>
         <v-list-item link to="/juegoaventura">
           <v-list-item-action>
-            <v-icon>mdi-sword</v-icon>
+            <v-icon>mdi-key</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>AVENTURA</v-list-item-title>
