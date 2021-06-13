@@ -65,36 +65,48 @@
                         cols="12"
                     >
                         <!-- cardbootstrap -->
-                        <div class="card mb-2 blue">
-                            <div class="card-header green darken-1">
-                                {{ item.nombrejuego }}
-                            </div>
-                            <div class="row no-gutters">
-                                <div class="col-md-5">
-                                    <img
-                                        :src="item.image"
-                                        class="img-fluid"
-                                        style="height: 250px; width: 420px"
-                                    />
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {{ item.precio }}
-                                        </h5>
-                                        <p class="card-text">
-                                            {{ item.descripcion }}
-                                        </p>
-                                        <p class="card-text">
-                                            <small class="text-bold">{{
-                                                item.clasificacion
-                                            }}</small>
-                                        </p>
-                                        <detalles :gameUniverse="item" />
-                                    </div>
-                                </div>
+    <div class="card mb-2 blue green darken-3 p-1">
+                <div class="card-header brown lighten-2">
+                    {{ item.nombrejuego }}
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-md-5">
+                    <img
+                        :src="item.image"
+                        class="img-fluid"
+                        style="height: 250px; width: 420px"
+                    />
+                    </div>
+                    <div class="col-md-7">
+                    <div class="card-body">
+                        <div class="row">
+                        <div class="col">
+                            <h1 class="card-title">${{ item.precio }}</h1>
+                        </div>
+                        <div class="col">
+                            <h5 class="card-text text-bold text-right">
+                            {{ item.clasificacion }}
+                            </h5>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <h5 class="card-text">
+                            {{ item.descripcion }}
+                            </h5>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <div class="m-2">
+                            <detalles :gameUniverse="item" />
                             </div>
                         </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
                         <!-- fincardbootstrap -->
                     </v-col>
                 </v-row>
