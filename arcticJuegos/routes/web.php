@@ -63,7 +63,7 @@ Route::post('/sendemail', function () {
     $data= array('bodyMessage' => 'Hola este es un mensaje');
 
     Mail::send('email', $data, function ($message) {
-        $message->from('arcticgamesuniverse@hotmail.com', 'Arctic Games Universe');
+        $message->from('vladi.vemf@hotmail.com', 'Arctic Games Universe');
         // $message->from('vemf.vemf@hotmail.com', 'Arctic Games Universe');
         $message->to(Request::get('email'))->subject('Factura de Compra (A.G.U.)');
     });

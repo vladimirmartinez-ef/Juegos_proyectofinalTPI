@@ -159,7 +159,7 @@ export default {
       snackbar: false,
       loading: false,
       newFact: {},
-      text: `Compra Realizada, la factura se envio a su correo!! <br>   (Espera mientras la pagina se recarga sola)`,
+      text: `Compra Realizada, la factura se envio a su correo!! \n(Espera mientras la pagina se recarga sola)`,
     };
   },
   methods: {
