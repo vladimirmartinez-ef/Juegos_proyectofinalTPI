@@ -35,7 +35,9 @@ Route::get('/aventura', 'JuegoController@aventura');
 
 Route::get('/rpg', 'JuegoController@rpg');
 
-Route::get('/estrategia', 'JuegoController@estrategia');
+Route::get('/accion','JuegoController@accion');
+
+Route::get('/estrategia','JuegoController@estrategia');
 
 Route::get('/juegocarrera', function() {
     return view('carreras');
@@ -53,6 +55,9 @@ Route::get('/juegoaventura', function() {
     return view('aventura');
 });
 
+Route::get('/juegoaccion', function() {
+    return view('accion');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

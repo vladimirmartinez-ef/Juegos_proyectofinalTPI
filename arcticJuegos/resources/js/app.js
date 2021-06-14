@@ -20,6 +20,7 @@ import Carrera from './components/route_vue/Carreras.vue'
 import Principal from './components/route_vue/Principal.vue'
 import RPG from './components/route_vue/RPG.vue'
 import Aventura from './components/route_vue/Aventura.vue'
+import Accion from './components/route_vue/Accion.vue'
 
 
 
@@ -51,6 +52,11 @@ const router = new VueRouter({
             path: '/juegoaventura',
             name: 'aventura',
             component: Aventura
+        },
+        {
+            path: '/juegoaccion',
+            name: 'accion',
+            component: Accion
         },
     ],
 });

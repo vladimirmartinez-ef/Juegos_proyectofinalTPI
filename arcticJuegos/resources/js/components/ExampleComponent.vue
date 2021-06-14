@@ -42,6 +42,14 @@
             <v-list-item-title>AVENTURA</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+         <v-list-item link to="/juegoaccion">
+          <v-list-item-action>
+            <v-icon>mdi-pistol</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>ACCION</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar app clipped-left>
