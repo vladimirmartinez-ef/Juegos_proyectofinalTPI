@@ -51,8 +51,8 @@
         <v-row>
           <v-col v-for="(item, index) in props.items" :key="index" cols="12">
             <!-- cardbootstrap -->
-            <div class="card mb-2 blue darken-3 p-1">
-              <div class="card-header grey darken-1">
+            <div class="card mb-2 red darken-3 p-1">
+              <div class="card-header teal darken-3">
                 {{ item.nombrejuego }}
               </div>
               <div class="row no-gutters">
