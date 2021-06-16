@@ -3061,6 +3061,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -41487,7 +41504,7 @@ var render = function() {
                         [
                           _c(
                             "div",
-                            { staticClass: "card-header deep-purple accent-3" },
+                            { staticClass: "card-header light-green darken-3" },
                             [
                               _vm._v(
                                 "\n              " +
@@ -42263,54 +42280,92 @@ var render = function() {
                   "v-row",
                   _vm._l(props.items, function(item, index) {
                     return _c("v-col", { key: index, attrs: { cols: "12" } }, [
-                      _c("div", { staticClass: "card mb-2 blue" }, [
-                        _c(
-                          "div",
-                          { staticClass: "card-header green darken-1" },
-                          [_vm._v(_vm._s(item.nombrejuego))]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row no-gutters" }, [
-                          _c("div", { staticClass: "col-md-5" }, [
-                            _c("img", {
-                              staticClass: "img-fluid",
-                              staticStyle: { height: "250px", width: "420px" },
-                              attrs: { src: item.image }
-                            })
-                          ]),
+                      _c(
+                        "div",
+                        { staticClass: "card mb-2 teal darken-1 p-1" },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "card-header deep-orange darken-3" },
+                            [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(item.nombrejuego) +
+                                  "\n            "
+                              )
+                            ]
+                          ),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-7" }, [
-                            _c(
-                              "div",
-                              { staticClass: "card-body" },
-                              [
-                                _c("h5", { staticClass: "card-title" }, [
-                                  _vm._v(_vm._s(item.precio) + " ")
-                                ]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "card-text" }, [
-                                  _vm._v(
-                                    "\n                    " +
-                                      _vm._s(item.descripcion) +
-                                      "\n                  "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "card-text" }, [
-                                  _c("small", { staticClass: "text-bold" }, [
-                                    _vm._v(_vm._s(item.clasificacion))
+                          _c("div", { staticClass: "row no-gutters" }, [
+                            _c("div", { staticClass: "col-md-5" }, [
+                              _c("img", {
+                                staticClass: "img-fluid",
+                                staticStyle: {
+                                  height: "250px",
+                                  width: "420px"
+                                },
+                                attrs: { src: item.image }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-7" }, [
+                              _c("div", { staticClass: "card-body" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c("h1", { staticClass: "card-title" }, [
+                                      _vm._v("$" + _vm._s(item.precio))
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    _c(
+                                      "h5",
+                                      {
+                                        staticClass:
+                                          "card-text text-bold text-right"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                        " +
+                                            _vm._s(item.clasificacion) +
+                                            "\n                      "
+                                        )
+                                      ]
+                                    )
                                   ])
                                 ]),
                                 _vm._v(" "),
-                                _c("detalles", {
-                                  attrs: { gameUniverse: item }
-                                })
-                              ],
-                              1
-                            )
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c("h5", { staticClass: "card-text" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(item.descripcion) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "m-2" },
+                                      [
+                                        _c("detalles", {
+                                          attrs: { gameUniverse: item }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ])
                           ])
-                        ])
-                      ])
+                        ]
+                      )
                     ])
                   }),
                   1

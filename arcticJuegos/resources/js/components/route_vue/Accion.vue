@@ -57,7 +57,7 @@
 
             <!-- cardbootstrap -->
             <div class="card mb-2 deep-purple darken-3 p-1">
-              <div class="card-header deep-purple accent-3">
+              <div class="card-header light-green darken-3">
                 {{ item.nombrejuego }}
               </div>
               <div class="row no-gutters">
